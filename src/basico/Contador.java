@@ -13,23 +13,43 @@ public class Contador extends Application {
 
     private int contador = 0;
 
+    private void atualizarLabelNumero(Label label) {
+        label.setText(Integer.toString(contador));
+
+        label.getStyleClass().remove("verde");
+        label.getStyleClass().remove("vermelho");
+
+        if(contador > 0) {
+            label.getStyleClass().add("verde");
+        } else if (contador < 0) {
+            label.getStyleClass().add("vermelho");
+        }
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         Label labelTitulo = new Label("Contador");
+        labelTitulo.getStyleClass().add("titulo");
         Label labelNumero = new Label("0");
+        labelNumero.getStyleClass().add("numero");
+
+
 
         Button botaoDecremento = new Button("-");
+        botaoDecremento.getStyleClass().add("botoes");
         botaoDecremento.setOnAction(e -> {
             contador--;
-            labelNumero.setText(Integer.toString(contador));
+            atualizarLabelNumero(labelNumero);
         });
         Button botaoIncremento = new Button("+");
+        botaoIncremento.getStyleClass().add("botoes");
         botaoIncremento.setOnAction(e -> {
             contador++;
-            labelNumero.setText(Integer.toString(contador));
+            atualizarLabelNumero(labelNumero);
         });
         Button botaoReset = new Button("Reset");
+        botaoReset.getStyleClass().add("botoes");
         botaoReset.setOnAction(e -> {
             contador = 0;
             labelNumero.setText(Integer.toString(contador));
@@ -42,14 +62,18 @@ public class Contador extends Application {
         boxBotoes.getChildren().add(botaoIncremento);
         boxBotoes.getChildren().add(botaoReset);
 
-        VBox boxPrincipal = new VBox();
-        boxPrincipal.setAlignment(Pos.CENTER);
-        boxPrincipal.setSpacing(10);
-        boxPrincipal.getChildren().add(labelTitulo);
-        boxPrincipal.getChildren().add(labelNumero);
-        boxPrincipal.getChildren().add(boxBotoes);
+        VBox boxConteudo = new VBox();
+        boxConteudo.getStyleClass().add("conteudo");
+        boxConteudo.setAlignment(Pos.CENTER);
+        boxConteudo.setSpacing(10);
+        boxConteudo.getChildren().add(labelTitulo);
+        boxConteudo.getChildren().add(labelNumero);
+        boxConteudo.getChildren().add(boxBotoes);
 
-        Scene cenaPrincipal = new Scene(boxPrincipal, 400, 400);
+        String caminhoCss = getClass().getResource("/basico/Contador.css").toExternalForm();
+        Scene cenaPrincipal = new Scene(boxConteudo, 400, 400);
+        cenaPrincipal.getStylesheets().add(caminhoCss);
+        cenaPrincipal.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
         primaryStage.setScene(cenaPrincipal);
         primaryStage.show();
