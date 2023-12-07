@@ -3,7 +3,6 @@ package layout;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class AppLayout extends Application {
@@ -13,7 +12,8 @@ public class AppLayout extends Application {
 //        raiz = new TesteAnchorPane();
 //        raiz = new TesteBorderPane();
 //        raiz = new TesteFlowPane();
-        raiz = new TesteGridPane();
+//        raiz = new TesteGridPane();
+        raiz = new TesteStackPane();
 
         Scene principal = new Scene(raiz, 800,600);
 
