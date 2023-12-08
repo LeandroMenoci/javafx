@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<GridPane xmlns="http://javafx.com/javafx">
+
+    <Label text="Seja Bem Vindo"
+    GridPane.columnIndex="0"
+    GridPane.rowIndex="0"></Label>
+
+    <Label text="E-mail: "
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="1"></Label>
+    <TextField GridPane.columnIndex="1"
+               GridPane.rowIndex="1">
+    </TextField>
+
+    <Label text="Senha: "
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="2"></Label>
+    <PasswordField GridPane.columnIndex="1"
+               GridPane.rowIndex="2">
+    </PasswordField>
+
+    <Button text="Entrar"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="3">
+
+    </Button>
+
+<!--    xmlns:fx="http://javafx.com/fxml"-->
+<!--    fx:controller="fxml.Login"-->
+<!--    prefHeight="400.0" prefWidth="600.0"-->
+
+</GridPane>
